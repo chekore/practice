@@ -5,6 +5,20 @@ import (
 	"math"
 )
 
+type ByteSize float64
+
+const (
+	_           = iota
+	KB ByteSize = 1 << (10 * iota)
+	MB
+	GB
+	TB
+	PB
+	EB
+	ZB
+	YB
+)
+
 type People struct {
 	Name string
 	Age  int
@@ -75,5 +89,8 @@ func main() {
 	fmt.Printf("32 bit int is: %d\n", m)
 	fmt.Printf("16 bit int is: %d\n", n)
 
-	Uint8FromInt(100000)
+	x, error := Uint8FromInt(100000)
+	fmt.Printf("the result is: %d, info: %s\n", x, error)
+	flag := 1 | 2
+	fmt.Printf("the flag is: %d\n", flag)
 }
