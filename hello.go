@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"unicode/utf8"
 )
 
 type ByteSize float64
@@ -50,6 +51,13 @@ func IntFromFloat64(x float64) int {
 		return int(whole)
 	}
 	panic(fmt.Sprintf("%g is out of the int32 range", x))
+}
+
+/**
+* return byte length and character length
+ */
+func Rune(s string) (int, int) {
+	return len(s), utf8.RuneCountInString(s)
 }
 
 func main() {
