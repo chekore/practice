@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -114,4 +115,20 @@ func main() {
 	fmt.Printf("%c - %c - %c\n", ch, ch2, ch3)
 	fmt.Printf("%X - %X - %X\n", ch, ch2, ch3)
 	fmt.Printf("%U - %U - %U\n", ch, ch2, ch3)
+
+	str := "This is an example of a string"
+	fmt.Printf("T/F? Does the string \"%s\" have prefix %s?", str, "Th")
+	fmt.Printf("%t\n", strings.HasPrefix(str, "Th"))
+	fmt.Printf("The index is: %d\n", strings.IndexRune(str, rune('o')))
+
+	sl := strings.Fields(str)
+	fmt.Printf("Splitted in slice: %v\n", sl)
+	for i, val := range sl {
+		if i < len(sl)-1 {
+			fmt.Printf("%s - ", val)
+		} else {
+			fmt.Printf("%s", val)
+		}
+	}
+	fmt.Println()
 }
