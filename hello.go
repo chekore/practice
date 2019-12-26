@@ -93,4 +93,17 @@ func main() {
 	fmt.Printf("the result is: %d, info: %s\n", x, error)
 	flag := 1 | 2
 	fmt.Printf("the flag is: %d\n", flag)
+
+	type Rope string
+
+	var ss Rope = "sbc"
+	fmt.Printf("the string is: %s\n", ss)
+
+	var ch int = '\u0041'
+	var ch2 int = '\u03B2'
+	var ch3 int = '\U00101234'
+	fmt.Printf("%d - %d - %d\n", ch, ch2, ch3)
+	fmt.Printf("%c - %c - %c\n", ch, ch2, ch3)
+	fmt.Printf("%X - %X - %X\n", ch, ch2, ch3)
+	fmt.Printf("%U - %U - %U\n", ch, ch2, ch3)
 }
