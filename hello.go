@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"math"
+	"strconv"
 	"strings"
+	"time"
 	"unicode/utf8"
 )
 
@@ -131,4 +133,34 @@ func main() {
 		}
 	}
 	fmt.Println()
+
+	orig := "666"
+	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)
+
+	an, _ := strconv.Atoi(orig)
+	fmt.Printf("The integer is: %d\n", an)
+	an = an + 5
+	ns := strconv.Itoa(an)
+	fmt.Printf("The new string is: %s\n", ns)
+
+	t := time.Now()
+	fmt.Println(t)
+	fmt.Printf("%02d.%02d.%4d\n", t.Day(), t.Month(), t.Year())
+	t = time.Now().UTC()
+	fmt.Println(t)
+	week := 60 * 60 * 24 * 7 * 1e9
+	week_from_now := t.Add(time.Duration(week))
+	fmt.Println(week_from_now)
+	fmt.Println(t.Format(time.RFC822))
+	fmt.Println(t.Format(time.ANSIC))
+	fmt.Println(t.Format("02 Jan 2006 15:04"))
+	s1 := t.Format("20160102")
+	fmt.Println(t, "=>", s1)
+
+	s2 := "good byte"
+	var p *string = &s2
+	*p = "hello"
+	fmt.Printf("Here is the pointer p: %p\n", p)
+	fmt.Printf("Here is the string *p: %s\n", *p)
+	fmt.Printf("Here is the string s2: %s\n", s2)
 }
