@@ -137,7 +137,11 @@ func main() {
 	orig := "666"
 	fmt.Printf("The size of ints is: %d\n", strconv.IntSize)
 
-	an, _ := strconv.Atoi(orig)
+	an, err := strconv.Atoi(orig)
+	if err != nil {
+		fmt.Printf("orig %s is not an integer - exiting with error\n", orig)
+		return
+	}
 	fmt.Printf("The integer is: %d\n", an)
 	an = an + 5
 	ns := strconv.Itoa(an)
@@ -163,4 +167,18 @@ func main() {
 	fmt.Printf("Here is the pointer p: %p\n", p)
 	fmt.Printf("Here is the string *p: %s\n", *p)
 	fmt.Printf("Here is the string s2: %s\n", s2)
+
+	sea := 9
+	switch sea {
+	case 1:
+		fmt.Println("It's mon.")
+	case 2:
+		fmt.Println("It's sec.")
+	case 3:
+		fmt.Println("It's The.")
+	case 9:
+		fmt.Println("It's sep.")
+	default:
+		fmt.Println("Out of season.")
+	}
 }
