@@ -181,4 +181,41 @@ func main() {
 	default:
 		fmt.Println("Out of season.")
 	}
+
+	for i := 0; i < 10; i++ {
+		j := 0
+	LOOP:
+		j++
+		if j <= i+1 {
+			fmt.Print("G")
+			goto LOOP
+		} else {
+			fmt.Println()
+		}
+	}
+
+	for i := 1; i <= 100; i++ {
+		switch {
+		case i%3 == 0 && i%5 == 0:
+			fmt.Print("FizzBuzz ")
+		case i%3 == 0:
+			fmt.Print("Fizz ")
+		case i%5 == 0:
+			fmt.Print("Buzz ")
+		default:
+			fmt.Printf("%d ", i)
+		}
+	}
+
+	println()
+
+LABEL1:
+	for i := 0; i < 5; i++ {
+		for j := 0; j <= 3; j++ {
+			if j == 2 {
+				continue LABEL1
+			}
+			fmt.Printf("i is: %d, and j is: %d\n", i, j)
+		}
+	}
 }
